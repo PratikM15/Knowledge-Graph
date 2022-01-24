@@ -1,0 +1,10 @@
+Flask
+numpy
+pandas
+spacy
+networkx
+matplotlib
+numpy
+tqdm
+
+
