@@ -63,7 +63,10 @@ def index():
         entity_pairs = []
         for i in tqdm(sentences):
             entity_pairs.append(get_entities(i))
-        relations = [get_relation(i) for i in tqdm(sentences)]
+        try:
+            relations = [get_relation(i) for i in tqdm(sentences)]
+        except:
+            return render_template('index.html', msg="Try with another text.")
         source = [i[0] for i in entity_pairs]
         target = [i[1] for i in entity_pairs]
         kg_df = pd.DataFrame({'source':source, 'target':target, 'edge':relations})
